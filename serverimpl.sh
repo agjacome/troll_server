@@ -24,7 +24,7 @@ while read line; do
     elif [[ ! -z "$(echo ${line} | grep -i "Content-Type: ")" ]]; then
         export CONTENT_TYPE="$(echo ${line} | cut -d' ' -f2)"
     elif [[ ! -z "$(echo ${line} | grep -i "Cookie: ")" ]]; then
-        export HTTP_COOKIE="${HTT_COOKIE}$(echo ${line} | sed \
+        export HTTP_COOKIE="${HTTP_COOKIE}$(echo ${line} | sed \
             -e "s/^.*: //g" \
             -e "s/[Dd]omain=[^;]*//g" \
             -e "s/[Ee]xpires=[^;]*//g" \
